@@ -1,0 +1,21 @@
+<div>
+  <input [(ngModel)]="newItem" placeholder="Écris quelque chose" />
+  <button (click)="addItem()">Ajouter</button>
+  <br>
+  <br>
+  <button (click)="removeLastItem()">Supprimer la dernière ligne</button>
+  <br>
+  <br>
+  <button (click)="toggleColorMode()">{{ buttonLabel }}</button>
+  <br>
+  <br>
+  <button (click)="sortList()">{{ sortButtonLabel }}</button>
+  <br>
+  <br>
+  <button (click)="toggleListVisibility()">{{ displayButtonLabel }}</button>
+</div>
+<ul *ngIf="isListVisible">
+  <li *ngFor="let item of items; let i = index" [ngStyle]="{'color': getColor(i)}">
+    {{ item }}
+  </li>
+</ul>
